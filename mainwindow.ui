@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>656</width>
+    <height>548</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>50</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;事务&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>100</y>
+      <width>491</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#353535;&quot;&gt;用于删除书店。从表 Bookstores 中删除该书店，表 Sale 级联删除所有该书店的记录。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_store">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>150</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>凤凰书店</string>
+    </property>
+    <property name="placeholderText">
+     <string>书店名</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_tran">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>150</y>
+      <width>91</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>删除该书店</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>656</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>查看表</string>
+    </property>
+    <addaction name="actionAuthors"/>
+    <addaction name="actionBooks"/>
+    <addaction name="actionBookstores"/>
+    <addaction name="actionPubHouses"/>
+    <addaction name="actionPublish"/>
+    <addaction name="actionPublishers"/>
+    <addaction name="actionSale"/>
+    <addaction name="actionWrite"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>查看视图</string>
+    </property>
+    <addaction name="actionBookStoreSale"/>
+    <addaction name="actionChineseBook"/>
+    <addaction name="actionHScoreBook"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionAuthors">
+   <property name="text">
+    <string>Authors</string>
+   </property>
+  </action>
+  <action name="actionBooks">
+   <property name="text">
+    <string>Books</string>
+   </property>
+  </action>
+  <action name="actionBookstores">
+   <property name="text">
+    <string>Bookstores</string>
+   </property>
+  </action>
+  <action name="actionPubHouses">
+   <property name="text">
+    <string>PubHouses</string>
+   </property>
+  </action>
+  <action name="actionPublishers">
+   <property name="text">
+    <string>Publishers</string>
+   </property>
+  </action>
+  <action name="actionSale">
+   <property name="text">
+    <string>Sale</string>
+   </property>
+  </action>
+  <action name="actionWrite">
+   <property name="text">
+    <string>Write</string>
+   </property>
+  </action>
+  <action name="actionBookStoreSale">
+   <property name="text">
+    <string>BookStoreSale</string>
+   </property>
+  </action>
+  <action name="actionChineseBook">
+   <property name="text">
+    <string>ChineseBook</string>
+   </property>
+  </action>
+  <action name="actionHScoreBook">
+   <property name="text">
+    <string>HScoreBook</string>
+   </property>
+  </action>
+  <action name="actionPublish">
+   <property name="text">
+    <string>Publish</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
