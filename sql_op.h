@@ -32,7 +32,7 @@ public:
 	QSqlQuery getSqlQuery() { return QSqlQuery(db); }
 	
 	// 获取数据库查询错误信息
-	QString getLastError() { return getSqlQuery().lastError().text(); }
+	QString getLastError() { return db.lastError().text(); }
 	
 	// 设置表、视图名
 	void setTVName(QString name) { tvName = name; }

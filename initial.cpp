@@ -46,25 +46,7 @@ void Widget::on_btn_connect_clicked()
     }
     else
     {
-        QMessageBox::information(this, "信息", "连接失败！");
-    }
-
-	QSqlQuery sql = ptr->getSqlQuery();
-    if(sql.exec("USE SCHOOL;"))
-    {
-        qDebug()<<"success";
-    }
-    else
-    {
-        qDebug()<<"fail";
-    }
-    if(sql.exec("create table Test4(test int);"))
-    {
-        qDebug()<<"success again";
-    }
-    else
-    {
-		qDebug() << "fail 2" + ptr->getLastError();
+        QMessageBox::warning(this, "错误", "连接失败！\n"+ ptr->getLastError());
     }
 }
 

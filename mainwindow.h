@@ -35,6 +35,12 @@ private slots:
     // 事务操作
 	bool on_btn_tran_clicked();
 
+    // 满足触发器条件
+    void on_pushButton_trigger_clicked();
+
+    // 违背触发器条件
+    void on_pushButton_trigger_err_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

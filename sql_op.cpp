@@ -33,11 +33,13 @@ bool sql_op::execSQL(QString query)
 	QSqlQuery sql_query = getSqlQuery();
 	if (!sql_query.exec(query))
 	{
-		qDebug() << sql_query.lastError();
+		QSqlError sqlerror = sql_query.lastError();//获得异常类
+		QMessageBox::warning(nullptr, "错误", "Error Code: " + sqlerror.nativeErrorCode() + "\n" + sqlerror.text());
 		return false;
 	}
 	else
 	{
+		QMessageBox::information(nullptr, "消息", "查询成功！");
 		return true;
 	}
 }

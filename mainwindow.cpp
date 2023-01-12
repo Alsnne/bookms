@@ -110,23 +110,54 @@ void MainWindow::on_actionHScoreBook_triggered()
 // 事务操作
 bool MainWindow::on_btn_tran_clicked()
 {
+	// 获取 SQL 实例
 	auto ptr = sql_op::getInstance();
+	
+	// 获取书店名
 	QString strStore = ui->lineEdit_store->text();
+	
 	QString strQuery = QString("DECLARE @TranName VARCHAR(20);"
 		"SELECT @TranName = 'DeleteBookstore';"
 		"BEGIN TRANSACTION @TranName;"
 		"USE BOOK;"
         "DELETE FROM Bookstores WHERE name = N'%1';"
 		"COMMIT TRANSACTION @TranName;").arg(strStore);
+	
+	// 执行事务，返回查询结果
 	bool flag = ptr->execSQL(strQuery);
-	if (!flag)
+	
+	// 输出查询结果
+	/*if (!flag)
 	{
-		qDebug() << "删除失败" << ptr->getLastError();
 		QMessageBox::warning(this, tr(u8"警告"), tr(u8"删除失败"));
 	}
 	else
 	{  
 		QMessageBox::information(this, tr(u8"提示"), tr(u8"删除成功"));
-	}
+	}*/
 	return flag;
 }
+
+
+// 满足触发器条件
+void MainWindow::on_pushButton_trigger_clicked()
+{
+    // 满足触发器条件的 INSERT 语句
+    QString strQuery = "INSERT INTO Sale VALUES ('红楼梦', '9787020002207', '上海书城', 45, 0);";
+    // 获取 SQL 实例
+    auto ptr = sql_op::getInstance();
+    // 执行
+    ptr->execSQL(strQuery);
+}
+
+
+void MainWindow::on_pushButton_trigger_err_clicked()
+{
+    // 违背触发器条件的 INSERT 语句
+    QString strQuery = "INSERT INTO Sale VALUES ('小王子', '9787532747962', '上海书城', 16, 200);";
+    // 获取 SQL 实例
+    auto ptr = sql_op::getInstance();
+    // 执行
+    ptr->execSQL(strQuery);
+}
+
