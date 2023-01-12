@@ -8,8 +8,8 @@
 #include <QDebug>
 #include <array>
 
-const std::array<const char*, 11> arrTVNames = { "Authors", "Books", "Bookstores", "PubHouses", "Publish",
-"Publishers", "Sale", "Write", "BookStoreSale", "ChineseBook", "HScoreBook" };
+const std::array<const char*, 12> arrTVNames = { "Authors", "Books", "Bookstores", "PubHouses", "Publish",
+"Publishers", "Sale", "Write", "BookStoreSale", "ChineseBook", "HScoreBook", "ViewQuery"};
 
 QString textf(QString str)
 {
@@ -221,6 +221,23 @@ showtv::showtv(QWidget *parent) :
 				ui->tableWidget->setItem(i, 2, new QTableWidgetItem(list[i].author));
 				ui->tableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(list[i].year)));
 				ui->tableWidget->setItem(i, 4, new QTableWidgetItem(QString::number(list[i].score)));
+			}
+		}
+		break;
+		case 11:
+		{
+			ui->label->setText(textf("2022 年度畅销中国图书"));
+			ui->tableWidget->setColumnCount(4);
+			ui->tableWidget->setHorizontalHeaderLabels(QStringList() << tr(u8"书名") << tr("ISBN") << tr(u8"作者") << tr(u8"总销售额"));
+			auto list = ptr->getBestsellerData();
+			ui->tableWidget->setRowCount(list.size());
+			qDebug() << list.size();
+			for (int i = 0; i < list.size(); i++)
+			{
+				ui->tableWidget->setItem(i, 0, new QTableWidgetItem(list[i].title));
+				ui->tableWidget->setItem(i, 1, new QTableWidgetItem(list[i].ISBN));
+				ui->tableWidget->setItem(i, 2, new QTableWidgetItem(list[i].author));
+				ui->tableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(list[i].grossSales)));
 			}
 		}
 		break;

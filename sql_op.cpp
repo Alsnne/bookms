@@ -324,3 +324,43 @@ QList<HScoreBook> sql_op::getHScoreBookData()
 	}
 	return hScoreBookList;
 }
+
+
+// 视图查询：2022 年度畅销中国图书
+QList<Bestseller> sql_op::getBestsellerData()
+{
+	QList<Bestseller> bestsellerList;
+	// QString strQuery = QString("EXEC ViewQuery; ");
+	QString strQuery = QString("USE BOOK; "
+	"SELECT titleOfBook, ISBN, author, grossSales "
+	"FROM ( "
+		"SELECT BookStoreSale.title titleOfBook, BookStoreSale.ISBN, BookStoreSale.author, SUM(sales) grossSales "
+		"FROM BookStoreSale, ChineseBook "
+		"WHERE BookStoreSale.ISBN = ChineseBook.ISBN AND ChineseBook.year = 2022 AND nationality = N'中国' "
+		"GROUP BY BookStoreSale.title, BookStoreSale.ISBN, BookStoreSale.author"
+	") AS Bestseller "
+	"WHERE grossSales > 100000"
+	"ORDER BY grossSales DESC;");
+	qDebug() << strQuery;
+	QSqlQuery query = getSqlQuery();
+	bool flag = query.exec(strQuery);
+	if (!flag)
+	{
+		QSqlError sqlerror = query.lastError();//获得异常类
+		QMessageBox::warning(nullptr, "错误", "Error Code: " + sqlerror.nativeErrorCode() + "\n" + sqlerror.text());		
+	}
+	else
+	{
+		QMessageBox::information(nullptr, "消息", "查询成功！");
+	}
+	while (query.next())
+	{
+		Bestseller bestseller;
+		bestseller.title = query.value(0).toString();
+		bestseller.ISBN = query.value(1).toString();
+		bestseller.author = query.value(2).toString();
+		bestseller.grossSales = query.value(3).toFloat();
+		bestsellerList.push_back(bestseller);
+	}
+	return bestsellerList;
+}

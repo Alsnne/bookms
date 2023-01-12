@@ -162,3 +162,12 @@ void MainWindow::on_pushButton_proc_clicked()
 	ptr->execSQL(strQuery);
 }
 
+// 执行视图查询
+void MainWindow::on_pushButton_view_clicked()
+{
+	// 获取 SQL 实例
+	auto ptr = sql_op::getInstance();
+	ptr->setTVName("ViewQuery");
+	showtv* s = new showtv;
+	s->show();
+}

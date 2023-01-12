@@ -82,6 +82,9 @@ public:
 	// 获取视图 HScoreBook 中的数据
 	QList<HScoreBook> getHScoreBookData();
 
+	// 视图查询：2022 年度畅销中国图书
+	QList<Bestseller> getBestsellerData();
+
 private:
 	QSqlDatabase db;
 	QString tvName;

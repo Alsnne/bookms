@@ -44,6 +44,9 @@ private slots:
 	// 执行存储过程
     void on_pushButton_proc_clicked();
 
+    // 执行视图查询
+	void on_pushButton_view_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

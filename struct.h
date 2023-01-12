@@ -95,3 +95,11 @@ struct HScoreBook
 	int year;
 	float score;
 };
+
+struct Bestseller
+{
+	QString title;
+	QString ISBN;
+	QString author;
+	float grossSales;
+};
