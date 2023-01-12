@@ -1,11 +1,13 @@
-﻿#include "initial.h"
+﻿/* 
+* 软件的起始界面，用于连接数据库
+*/
+
+#include "initial.h"
 #include "ui_initial.h"
 #include "sql_op.h"
 #include "mainwindow.h"
 
 #include <QMessageBox>
-
-#include <QDebug>
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)

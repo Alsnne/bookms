@@ -91,13 +91,13 @@ public:
         label_4->setText(QCoreApplication::translate("Widget", "<html><head/><body><p><span style=\" font-size:10pt;\">\346\225\260\346\215\256\346\272\220</span></p></body></html>", nullptr));
         label_5->setText(QCoreApplication::translate("Widget", "<html><head/><body><p><span style=\" font-size:10pt;\">\347\224\250\346\210\267\345\220\215</span></p></body></html>", nullptr));
         label_6->setText(QCoreApplication::translate("Widget", "<html><head/><body><p><span style=\" font-size:10pt;\">\345\257\206	\347\240\201</span></p></body></html>", nullptr));
-        line_serverName->setText(QCoreApplication::translate("Widget", "YIMINGS-PC", nullptr));
+        line_serverName->setText(QString());
         line_serverName->setPlaceholderText(QCoreApplication::translate("Widget", "serverName", nullptr));
-        line_datasourceName->setText(QCoreApplication::translate("Widget", "SQLServerBook", nullptr));
+        line_datasourceName->setText(QString());
         line_datasourceName->setPlaceholderText(QCoreApplication::translate("Widget", "datasourceName", nullptr));
-        line_userName->setText(QCoreApplication::translate("Widget", "sa", nullptr));
+        line_userName->setText(QString());
         line_userName->setPlaceholderText(QCoreApplication::translate("Widget", "Username", nullptr));
-        line_userPassword->setText(QCoreApplication::translate("Widget", "123456", nullptr));
+        line_userPassword->setText(QString());
         line_userPassword->setPlaceholderText(QCoreApplication::translate("Widget", "Password", nullptr));
         btn_connect->setText(QCoreApplication::translate("Widget", "\350\277\236  \346\216\245", nullptr));
         btn_exit->setText(QCoreApplication::translate("Widget", "\351\200\200  \345\207\272", nullptr));

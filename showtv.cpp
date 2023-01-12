@@ -1,11 +1,15 @@
-﻿#include "showtv.h"
+﻿/*
+* 实现表、视图、SELECT 查询的显示
+* 以列表形式显示查询
+*/
+
+#include "showtv.h"
 #include "ui_showtv.h"
 #include "sql_op.h"
 
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QMessageBox>
-#include <QDebug>
 #include <array>
 
 const std::array<const char*, 12> arrTVNames = { "Authors", "Books", "Bookstores", "PubHouses", "Publish",
@@ -22,7 +26,6 @@ showtv::showtv(QWidget *parent) :
 {
     ui->setupUi(this);
 	auto ptr = sql_op::getInstance();
-	qDebug() << ptr->getTVName();// "Authors"
 	auto tvName = ptr->getTVName();
 	int index;
 	for (int i = 0; i < arrTVNames.size(); i++)
@@ -33,7 +36,6 @@ showtv::showtv(QWidget *parent) :
 			break;
 		}
 	}
-	qDebug() << index;
 	switch (index)
 	{
 		case 0:
@@ -231,7 +233,6 @@ showtv::showtv(QWidget *parent) :
 			ui->tableWidget->setHorizontalHeaderLabels(QStringList() << tr(u8"书名") << tr("ISBN") << tr(u8"作者") << tr(u8"总销售额"));
 			auto list = ptr->getBestsellerData();
 			ui->tableWidget->setRowCount(list.size());
-			qDebug() << list.size();
 			for (int i = 0; i < list.size(); i++)
 			{
 				ui->tableWidget->setItem(i, 0, new QTableWidgetItem(list[i].title));

@@ -1,4 +1,9 @@
-﻿#include <QMessagebox>
+﻿/* 
+* 实现软件主界面
+* 实现表、视图的查询以及事务、触发器、存储过程、视图的各项操作
+*/
+
+#include <QMessagebox>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -122,6 +127,9 @@ bool MainWindow::on_btn_tran_clicked()
 		"USE BOOK;"
         "DELETE FROM Bookstores WHERE name = N'%1';"
 		"COMMIT TRANSACTION @TranName;").arg(strStore);
+
+	// 直接 COMMIT
+	// QString strQuery = QString("COMMIT TRANSACTION DeleteBookstore;").arg(strStore);
 	
 	// 执行事务，返回查询结果
 	bool flag = ptr->execSQL(strQuery);

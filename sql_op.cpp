@@ -1,4 +1,8 @@
-﻿#include "sql_op.h"
+﻿/*
+* 实现数据库操作
+*/
+
+#include "sql_op.h"
 
 #include <QMessageBox>
 
@@ -11,23 +15,21 @@ sql_op::sql_op() {}
 bool sql_op::connectToSQL(QString serverName, QString datasourceName, QString userName, QString userPassword)
 {
 	db = QSqlDatabase::addDatabase("QODBC");
-	qDebug() << "ODBC driver?" << db.isValid(); //查看QT是否支持该类型的数据库
 	db.setHostName(serverName);   // 服务器名
 	db.setDatabaseName(datasourceName); // 数据源名
 	db.setUserName(userName);   // 数据库用户名
 	db.setPassword(userPassword);   // 数据库用户密码
 	if (!db.open())
 	{
-		qDebug() << "Fail to open the database.";
 		return false;
 	}
 	else
 	{
-		qWarning() << "Successfully open database!";
 		return true;
 	}
 }
 
+// 执行 SQL 查询，提示查询结果
 bool sql_op::execSQL(QString query)
 {
 	QSqlQuery sql_query = getSqlQuery();
@@ -54,7 +56,6 @@ QList<Authors> sql_op::getAuthorsData()
 	{ }
 	else
 	{
-		qDebug() << "Error: Fail to execute sql." << query.lastError();
 		QMessageBox::warning(nullptr, "错误", "查询失败");
 	}
 	while (query.next())
@@ -79,7 +80,6 @@ QList<Books> sql_op::getBooksData()
 	}
 	else
 	{
-		qDebug() << "Error: Fail to execute sql." << query.lastError();
 		QMessageBox::warning(nullptr, "错误", "查询失败");
 	}
 	while (query.next())
@@ -107,7 +107,6 @@ QList<Bookstores> sql_op::getBookstoresData()
 	}
 	else
 	{
-		qDebug() << "Error: Fail to execute sql." << query.lastError();
 		QMessageBox::warning(nullptr, "错误", "查询失败");
 	}
 	while (query.next())
@@ -131,7 +130,6 @@ QList<PubHouses> sql_op::getPubHousesData()
 	}
 	else
 	{
-		qDebug() << "Error: Fail to execute sql." << query.lastError();
 		QMessageBox::warning(nullptr, "错误", "查询失败");
 	}
 	while (query.next())
@@ -156,7 +154,6 @@ QList<Publish> sql_op::getPublishData()
 	}
 	else
 	{
-		qDebug() << "Error: Fail to execute sql." << query.lastError();
 		QMessageBox::warning(nullptr, "错误", "查询失败");
 	}
 	while (query.next())
@@ -181,7 +178,6 @@ QList<Publishers> sql_op::getPublishersData()
 	}
 	else
 	{
-		qDebug() << "Error: Fail to execute sql." << query.lastError();
 		QMessageBox::warning(nullptr, "错误", "查询失败");
 	}
 	while (query.next())
@@ -206,7 +202,6 @@ QList<Sale> sql_op::getSaleData()
 	}
 	else
 	{
-		qDebug() << "Error: Fail to execute sql." << query.lastError();
 		QMessageBox::warning(nullptr, "错误", "查询失败");
 	}
 	while (query.next())
@@ -232,7 +227,6 @@ QList<Write> sql_op::getWriteData()
 	}
 	else
 	{
-		qDebug() << "Error: Fail to execute sql." << query.lastError();
 		QMessageBox::warning(nullptr, "错误", "查询失败");
 	}
 	while (query.next())
@@ -255,7 +249,6 @@ QList<BookStoreSale> sql_op::getBookStoreSaleData()
 	}
 	else
 	{
-		qDebug() << "Error: Fail to execute sql." << query.lastError();
 		QMessageBox::warning(nullptr, "错误", "查询失败");
 	}
 	while (query.next())
@@ -283,7 +276,6 @@ QList<ChineseBook> sql_op::getChineseBookData()
 	}
 	else
 	{
-		qDebug() << "Error: Fail to execute sql." << query.lastError();
 		QMessageBox::warning(nullptr, "错误", "查询失败");
 	}
 	while (query.next())
@@ -309,7 +301,6 @@ QList<HScoreBook> sql_op::getHScoreBookData()
 	}
 	else
 	{
-		qDebug() << "Error: Fail to execute sql." << query.lastError();
 		QMessageBox::warning(nullptr, "错误", "查询失败");
 	}
 	while (query.next())
@@ -341,7 +332,6 @@ QList<Bestseller> sql_op::getBestsellerData()
 	") AS Bestseller "
 	"WHERE grossSales > 100000"
 	"ORDER BY grossSales DESC;");
-	qDebug() << strQuery;
 	QSqlQuery query = getSqlQuery();
 	bool flag = query.exec(strQuery);
 	if (!flag)

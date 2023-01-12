@@ -101,7 +101,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>YIMINGS-PC</string>
+    <string/>
    </property>
    <property name="placeholderText">
     <string>serverName</string>
@@ -117,7 +117,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>SQLServerBook</string>
+    <string/>
    </property>
    <property name="placeholderText">
     <string>datasourceName</string>
@@ -133,7 +133,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>sa</string>
+    <string/>
    </property>
    <property name="placeholderText">
     <string>Username</string>
@@ -149,7 +149,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>123456</string>
+    <string/>
    </property>
    <property name="echoMode">
     <enum>QLineEdit::Password</enum>
