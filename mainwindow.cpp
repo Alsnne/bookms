@@ -125,16 +125,6 @@ bool MainWindow::on_btn_tran_clicked()
 	
 	// 执行事务，返回查询结果
 	bool flag = ptr->execSQL(strQuery);
-	
-	// 输出查询结果
-	/*if (!flag)
-	{
-		QMessageBox::warning(this, tr(u8"警告"), tr(u8"删除失败"));
-	}
-	else
-	{  
-		QMessageBox::information(this, tr(u8"提示"), tr(u8"删除成功"));
-	}*/
 	return flag;
 }
 
@@ -150,7 +140,7 @@ void MainWindow::on_pushButton_trigger_clicked()
     ptr->execSQL(strQuery);
 }
 
-
+// 违背触发器条件
 void MainWindow::on_pushButton_trigger_err_clicked()
 {
     // 违背触发器条件的 INSERT 语句
@@ -159,5 +149,16 @@ void MainWindow::on_pushButton_trigger_err_clicked()
     auto ptr = sql_op::getInstance();
     // 执行
     ptr->execSQL(strQuery);
+}
+
+// 执行存储过程
+void MainWindow::on_pushButton_proc_clicked()
+{
+	// 获取 SQL 实例
+	auto ptr = sql_op::getInstance();
+	// 执行存储过程 SQL 语句
+	QString strQuery = "EXEC ChangeAuthorName 'Yu Hua', '余华';";
+	// 执行
+	ptr->execSQL(strQuery);
 }
 

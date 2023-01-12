@@ -48,6 +48,10 @@ public:
     QLabel *label_5;
     QLabel *label_6;
     QPushButton *pushButton_trigger_err;
+    QLabel *label_7;
+    QLabel *label_8;
+    QLabel *label_9;
+    QPushButton *pushButton_proc;
     QMenuBar *menubar;
     QMenu *menu;
     QMenu *menu_2;
@@ -57,7 +61,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(700, 560);
+        MainWindow->resize(677, 610);
         MainWindow->setUnifiedTitleAndToolBarOnMac(false);
         actionAuthors = new QAction(MainWindow);
         actionAuthors->setObjectName(QString::fromUtf8("actionAuthors"));
@@ -85,10 +89,10 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(0, 50, 651, 31));
+        label->setGeometry(QRect(0, 50, 671, 31));
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(0, 100, 651, 31));
+        label_2->setGeometry(QRect(0, 100, 671, 31));
         label_2->setWordWrap(true);
         lineEdit_store = new QLineEdit(centralwidget);
         lineEdit_store->setObjectName(QString::fromUtf8("lineEdit_store"));
@@ -98,10 +102,10 @@ public:
         btn_tran->setGeometry(QRect(360, 150, 91, 24));
         label_3 = new QLabel(centralwidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(3, 200, 661, 41));
+        label_3->setGeometry(QRect(3, 200, 671, 41));
         label_4 = new QLabel(centralwidget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(23, 250, 651, 51));
+        label_4->setGeometry(QRect(20, 250, 621, 51));
         label_4->setMinimumSize(QSize(200, 0));
         label_4->setWordWrap(true);
         pushButton_trigger = new QPushButton(centralwidget);
@@ -116,10 +120,22 @@ public:
         pushButton_trigger_err = new QPushButton(centralwidget);
         pushButton_trigger_err->setObjectName(QString::fromUtf8("pushButton_trigger_err"));
         pushButton_trigger_err->setGeometry(QRect(470, 310, 41, 21));
+        label_7 = new QLabel(centralwidget);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setGeometry(QRect(0, 350, 671, 31));
+        label_8 = new QLabel(centralwidget);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+        label_8->setGeometry(QRect(0, 400, 671, 20));
+        label_9 = new QLabel(centralwidget);
+        label_9->setObjectName(QString::fromUtf8("label_9"));
+        label_9->setGeometry(QRect(150, 440, 201, 16));
+        pushButton_proc = new QPushButton(centralwidget);
+        pushButton_proc->setObjectName(QString::fromUtf8("pushButton_proc"));
+        pushButton_proc->setGeometry(QRect(400, 440, 41, 21));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 700, 22));
+        menubar->setGeometry(QRect(0, 0, 677, 22));
         menu = new QMenu(menubar);
         menu->setObjectName(QString::fromUtf8("menu"));
         menu_2 = new QMenu(menubar);
@@ -174,6 +190,10 @@ public:
         label_5->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" color:#00007f;\">\346\273\241\350\266\263\350\247\246\345\217\221\345\231\250\346\235\241\344\273\266</span></p></body></html>", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" color:#00007f;\">\350\277\235\350\203\214\350\247\246\345\217\221\345\231\250\346\235\241\344\273\266</span></p></body></html>", nullptr));
         pushButton_trigger_err->setText(QCoreApplication::translate("MainWindow", "\346\211\247\350\241\214", nullptr));
+        label_7->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt;\">\345\255\230\345\202\250\350\277\207\347\250\213</span></p></body></html>", nullptr));
+        label_8->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt; color:#353535;\">\344\277\256\346\224\271\344\275\234\345\256\266\347\232\204\347\254\224\345\220\215\343\200\202\344\277\256\346\224\271\350\241\250Books\344\270\255\347\232\204author\345\222\214\350\241\250Authors\344\270\255\347\232\204name\357\274\214\347\272\247\350\201\224\346\233\264\346\226\260\350\241\250Write\344\270\255\347\232\204author\343\200\202</span></p></body></html>", nullptr));
+        label_9->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" color:#00007f;\">\345\260\206\344\275\234\345\256\266 'Yu Hua' \344\277\256\346\224\271\344\270\272 '\344\275\231\345\215\216'</span></p></body></html>", nullptr));
+        pushButton_proc->setText(QCoreApplication::translate("MainWindow", "\346\211\247\350\241\214", nullptr));
         menu->setTitle(QCoreApplication::translate("MainWindow", "\346\237\245\347\234\213\350\241\250", nullptr));
         menu_2->setTitle(QCoreApplication::translate("MainWindow", "\346\237\245\347\234\213\350\247\206\345\233\276", nullptr));
     } // retranslateUi

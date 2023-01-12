@@ -41,6 +41,9 @@ private slots:
     // 违背触发器条件
     void on_pushButton_trigger_err_clicked();
 
+	// 执行存储过程
+    void on_pushButton_proc_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
